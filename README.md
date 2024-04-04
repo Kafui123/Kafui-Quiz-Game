@@ -1,15 +1,15 @@
-# ❗CSC226 Final Project
+# CSC226 Final Project
 
-❗️Exclamation Marks ❗️indicate action items; you should remove these emoji as you complete/update the items which 
+️Exclamation Marks  ️indicate action items; you should remove these emoji as you complete/update the items which 
   they accompany. (This means that your final README should have no ❗️in it!)
 
-❗️**Author(s)**: Your name(s) here
+️**Author(s)**: Kafui Gle and Jessica 
 
-❗️**Google Doc Link**: Your link here
+**Google Doc Link**: https://docs.google.com/document/d/1mwEhZutJwg9LO5EHPonubNumbngK-e0xImmEfnBs7DA/edit
 
 ---
 
-❗**References**: 
+**References**: TA, Scott Heggen, 
 Throughout this project, you have likely used outside resources. Reference all ideas which are not your own, 
 and describe how you integrated the ideas or code into your program. This includes online sources, people who have 
 helped you, AI tools you've used, and any other resources that are not solely your own contribution. Update as you go.
@@ -18,13 +18,14 @@ helped you, AI tools you've used, and any other resources that are not solely yo
 
 ## Milestone 1: Setup, Planning, Design
 
-❗️**Title**: What is the title of your project? Be creative!
+**Title**: The title of our project is Braniac Blitz.
 
-❗**Purpose**: In a single sentence, describe _what_ your project will do.
+**Purpose**: The purpose of this final projectself is to create a fun and energetic game suggesting a quick 
+              test of knowledge.
 
-❗️**Sources**: List which original assignments you will base your project on?
+**Sources**: Our original project would be based on the Game of Nim
 
-❗️**CRC Card(s)**:
+**CRC Card(s)**:
   - Please write a CRC card for each class that your project will implement.
   - See this link for a sample CRC card and a template to use for your own cards (you will have to make a copy to edit):
     [CRC Card Example](https://docs.google.com/document/d/1JE_3Qmytk_JGztRqkPXWACJwciPH61VCx3idIlBCVFY/edit?usp=sharing)
@@ -32,16 +33,16 @@ helped you, AI tools you've used, and any other resources that are not solely yo
     README. You can do this by saving an image in the repository and linking to it. See the sample CRC card below - 
     and replace it with your own:
   
-![Don't leave me in your README!](image/crc.png "Image of CRC card as an example. Upload your CRC card(s) in place of this one. ")
+This is our CRC Card Link -(https://docs.google.com/document/d/1SAo0Z97OQp9jsiVUj7PnDI3pxt-SXj3N2I3dVA1hepc/edit?usp=sharing)
 
-❗️**Branches**: This project will **require** effective use of git. 
+️**Branches**: This project will **require** effective use of git. 
 
 Each partner should create a branch at the beginning of the project, and stay on this branch (or branches of their 
 branch) as they work. When you need to bring each others branches together, do so by merging each other's branches 
 into your own, following the process we've discussed in previous assignments: 
 
-1. Branch 1 name: _____________
-2. Branch 2 name: _____________
+1. Branch 1 name: glek
+2. Branch 2 name: douthitj
 
 ---
 

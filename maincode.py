@@ -1,6 +1,6 @@
 ######################################################################
-# Author: Kafui Gle and Jessica Douthit  TODO: Change this to your name
-# Username: glek and douthitj   TODO: Change this to your username
+# Author: Kafui Gle and Jessica Douthit
+# Username: glek and douthitj
 #
 #  226 Final Project
 #
@@ -158,6 +158,14 @@ def main():
     questions = [
         Question("What is the capital of France?", "Paris", ["Paris", "London", "Berlin", "Madrid"]),
         Question("What is the largest planet in the solar system?", "Jupiter", ["Mercury", "Venus", "Earth", "Jupiter"])
+        Question("What is the capital of Australia?", "Canberra", ["Canberra", "Sydney", "Melbourne", "Darwin"])
+        Question("What is the coldest season?", "Winter", ["Summer", "Fall", "Winter", "Spring"]),
+        Question("What is the warmest season?", "Summer", ["Summer", "Fall", "Winter", "Spring"]),
+        Question("What is the largest continent?", "Asia", ["Europe", "Asia", "Africa", "North America"]),
+        Question("Which of the following is a primary color?", "Red", ["Red", "Cyan", "Magenta", "Black"]),
+        Question("Which college do the creators of this quiz attend?", "Berea College", ["Vanderbilt", "College of the Ozarks", "Berea College", "University of Kentucky"]),
+        Question("What is the to layer of the earth?", "Crust", ["Mantle", "Outer Core", "Inner Core", "Crust"]),
+        Question("Which of the following borders Russia?", "Winter", ["Canada", "Ukraine", "Mexico", "Thailand"]),
     ]
 
     # Create the quiz object and start the game

@@ -63,7 +63,10 @@ worried about? What has surprised you so far? Describe your general feelings. Be
  
 
 ```
-    **Replace this text with your reflection
+    We created 2 classes, Class Question and Class Quiz. Class Question handles a single question, and contains
+    two function definitions. Class Quiz contains six function defitions. Our current code projects the GUI, which 
+    is partially complete. We also ask the user for their username. So far we think it's going quite well, everything 
+    is on track. We are not behind, and right now our main concern is figuring out how to store the user's score, and how to make the game more engaging.    
 ```
 
 ---

@@ -136,7 +136,7 @@ class Quiz:
         timer_label.pack()
         start_timer()
 
-    def check_answer(self, user_answer):
+    def check_answer(self, user_answer, window):
         """Check the user's answer."""
         if self.current_question.is_correct(user_answer):
             self.score += 1
@@ -163,6 +163,7 @@ def main():
     # Create the quiz object and start the game
     quiz = Quiz(questions)
     window = tk.Tk()
+    quiz.get_username()
     window.title("Tech Trivia Quiz")
     quiz.ask_question(window)
     window.mainloop()

@@ -42,6 +42,7 @@ class Question:
             answer (str): The correct answer to the question.
             options (list): A list of possible answer options.
         """
+
         self.text = text
         self.answer = answer
         self.options = options
@@ -71,10 +72,12 @@ class Quiz:
         Args:
             questions (list): A list of Question objects.
         """
+        self.score_label = None  # This initializes the score variable
         self.questions = questions
         self.score = 0
         self.current_question = None
         self.time_remaining = 15  # Seconds per question
+        self.timer_id = None  # To store the ID of the timer
 
         # Load high scores
         self.load_high_scores()
@@ -103,44 +106,59 @@ class Quiz:
             self.show_results(window)
             return
 
+        # Remove previous question and answer widgets
+        for widget in window.winfo_children():
+            widget.destroy()
+
         self.current_question = self.questions.pop(0)
         question_label = tk.Label(window, text=self.current_question.text)
         question_label.pack()
 
         answer_vars = []
         for option in self.current_question.options:
-            var = tk.IntVar(value=0)
+            var = tk.StringVar()
             answer_vars.append(var)
             radio_button = tk.Radiobutton(window, text=option, variable=var, value=option)
             radio_button.pack()
 
+        # Creation of the score label
+        if self.score_label is None:
+            self.score_label = tk.Label(window, text="Score: 0")
+            self.score_label.pack()
+
         def submit_answer():
             selected_answer = None
             for var in answer_vars:
-                if var.get() == 1:
+                if var.get():
                     selected_answer = var.get()
-            self.check_answer(selected_answer)
+            self.check_answer(selected_answer, window)
 
         submit_button = tk.Button(window, text="Submit Answer", command=submit_answer)
         submit_button.pack()
 
-        def start_timer():
-            if self.time_remaining > 0:
-                timer_label['text'] = f"Time Remaining: {self.time_remaining}"
-                self.time_remaining -= 1
-                window.after(1000, start_timer)
-            else:
-                self.check_answer(None)
+        # Start the timer for the current question
+        self.time_remaining = 15
+        self.start_timer(window)
 
-        timer_label = tk.Label(window)
-        timer_label.pack()
-        start_timer()
+    def start_timer(self, window):
+        """Starts the timer for the current question."""
+        if self.timer_id:
+            window.after_cancel(self.timer_id)
+        if self.time_remaining > 0:
+            timer_label = tk.Label(window)
+            timer_label.pack()
+            timer_label['text'] = f"Time Remaining: {self.time_remaining}"
+            self.time_remaining -= 1
+            self.timer_id = window.after(1000, self.start_timer, window)
+        else:
+            self.check_answer(None, window)
 
     def check_answer(self, user_answer, window):
         """Check the user's answer."""
         if self.current_question.is_correct(user_answer):
             self.score += 1
-        self.ask_question(window)
+            self.score_label['text'] = f"Score: {self.score}"
+        self.ask_question(window)  # Move to the next question
 
     def show_results(self, window):
         """Display the quiz results."""
@@ -157,8 +175,8 @@ def main():
     # Sample questions
     questions = [
         Question("What is the capital of France?", "Paris", ["Paris", "London", "Berlin", "Madrid"]),
-        Question("What is the largest planet in the solar system?", "Jupiter", ["Mercury", "Venus", "Earth", "Jupiter"])
-        Question("What is the capital of Australia?", "Canberra", ["Canberra", "Sydney", "Melbourne", "Darwin"])
+        Question("What is the largest planet in the solar system?", "Jupiter", ["Mercury", "Venus", "Earth", "Jupiter"]),
+        Question("What is the capital of Australia?", "Canberra", ["Canberra", "Sydney", "Melbourne", "Darwin"]),
         Question("What is the coldest season?", "Winter", ["Summer", "Fall", "Winter", "Spring"]),
         Question("What is the warmest season?", "Summer", ["Summer", "Fall", "Winter", "Spring"]),
         Question("What is the largest continent?", "Asia", ["Europe", "Asia", "Africa", "North America"]),
@@ -174,8 +192,17 @@ def main():
     quiz.get_username()
     window.title("Tech Trivia Quiz")
     quiz.ask_question(window)
+
+    # Add score display label
+    score_display_label = tk.Label(window, text="Score: 0")
+    score_display_label.place(x=300, y=20)  # Place the label at the top-right corner
+    quiz.score_label = score_display_label
+
     window.mainloop()
 
 
 if __name__ == "__main__":
     main()
+
+
+

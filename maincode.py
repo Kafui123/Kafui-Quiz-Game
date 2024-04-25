@@ -25,7 +25,7 @@ import json
 
 class Question:
     """
-    Represents a single question in the quiz.
+    Represents  the questions in the quiz.
 
     Attributes:
         text (str): The text of the question.
@@ -102,9 +102,11 @@ class Quiz:
 
     def ask_question(self, window):
         """Displays a question, starts the timer, and handles answer submission."""
+
         if not self.questions:
             self.show_results(window)
             return
+
 
         # Remove previous question and answer widgets
         for widget in window.winfo_children():
@@ -118,13 +120,16 @@ class Quiz:
         for option in self.current_question.options:
             var = tk.StringVar()
             answer_vars.append(var)
-            radio_button = tk.Radiobutton(window, text=option, variable=var, value=option)
+            radio_button = tk.Radiobutton(window, text=option, value=option)
             radio_button.pack()
 
+        print(self.score_label)
         # Creation of the score label
         if self.score_label is None:
             self.score_label = tk.Label(window, text="Score: 0")
             self.score_label.pack()
+
+
 
         def submit_answer():
             selected_answer = None
@@ -150,6 +155,7 @@ class Quiz:
             timer_label['text'] = f"Time Remaining: {self.time_remaining}"
             self.time_remaining -= 1
             self.timer_id = window.after(1000, self.start_timer, window)
+
         else:
             self.check_answer(None, window)
 

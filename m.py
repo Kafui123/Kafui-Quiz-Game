@@ -116,6 +116,15 @@ class Quiz:
         self.feedback_label.config(text="")
         self.next_btn.config(state="disabled")
 
+        try:
+            image_path = f"q{self.current_question + 1}.img"  # This code changes the image with each new question
+            self.image = Image.open(image_path)
+            self.image = self.image.resize((400, 200))
+            self.photo = ImageTk.PhotoImage(self.image)
+            self.img_label.config(image=self.photo)
+        except FileNotFoundError:
+            print()
+
     def check_answer(self, choice):
         """
         Checks the selected answer and provides feedback.
@@ -140,6 +149,7 @@ class Quiz:
     def next_question(self):
         """Moves to the next question."""
         self.current_question += 1
+
 
         if self.current_question < len(quiz_data):
             self.show_question()

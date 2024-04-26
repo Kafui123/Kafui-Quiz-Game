@@ -18,6 +18,8 @@
 import tkinter as tk
 from tkinter import messagebox, ttk
 from quiz_data import quiz_data
+from PIL import Image, ImageTk
+from ttkbootstrap import Style
 
 class Quiz:
     """
@@ -52,6 +54,13 @@ class Quiz:
             padding=10
         )
         self.qs_label.pack(pady=10)
+
+        # Load and display image for the first question
+        self.image = Image.open("q1.img")  # Replace "q1.jpg" with the actual image path
+        self.image = self.image.resize((400, 200))
+        self.photo = ImageTk.PhotoImage(self.image)
+        self.img_label = tk.Label(root, image=self.photo)
+        self.img_label.pack()
 
         # List of buttons for answer choices
         self.choice_btns = []
@@ -145,6 +154,11 @@ def main():
     root = tk.Tk()
     app = Quiz(root)
     root.mainloop()
+    style = Style(theme="flatly")
+
+    # Configure the font size for the question and choice buttons
+    style.configure("TLabel", font=("Helvetica", 20))
+    style.configure("TButton", font=("Helvetica", 16))
 
 if __name__ == "__main__":
     main()

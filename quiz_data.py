@@ -1,40 +1,42 @@
 quiz_data = [
     {
-        "question": "What is the capital of France?",
-        "choices": ["Paris", "London", "Berlin", "Madrid"],
-        "answer": "Paris"
+        "question": "The way that files are located on disk is by their path",
+        "choices": ["True", "False", "Maybe", "Kinda"],
+        "answer": "True"
     },
     {
-        "question": "What is the largest planet in our solar system?",
-        "choices": ["Jupiter", "Saturn", "Mars", "Earth"],
-        "answer": "Jupiter"
+        "question": "How are dictionaries declared in python?",
+        "choices": ["Using square brackets[]", "Using curly braces{}", "Using parentheses()", "Using angle brackets<>"],
+        "answer": "Using curly braces{}"
     },
     {
-        "question": "What is the capital of Australia?",
-        "choices": ["Canberra", "Sydney", "Melbourne", "Darwin"],
-        "answer": "Canberra"
+        "question": "What is the keyword used to refer to the current instance of a class in Python?",
+        "choices": ["this", "self", "current", "Obj"],
+        "answer": "self"
     },
     {
-        "question": "What is the coldest season?",
-        "choices": ["Summer", "Fall", "Winter", "Spring"],
-        "answer": "Winter"
+        "question": "What is the purpose of an init method in a class?",
+        "choices": ["To define class-level variables", "To initialize", "Set an object attributes to its default state",
+                    "To create a new instance of the class"],
+        "answer": "To initialize"
     },
     {
-        "question": "What is the warmest season?",
-        "choices":  ["Summer", "Fall", "Winter", "Spring"],
-        "answer": "Summer"
+        "question": "The ==operator test for deep equality only",
+        "choices":  ["True", "False", "Maybe", "No"],
+        "answer": "False"
 
     },
     {
-        "question": "What is the largest continent?",
-        "choices": ["Europe", "Asia", "Africa", "North America"],
-        "answer": "Asia"
+        "question": "What is the style of programming that GUI's utilize?",
+        "choices": ["Top-down design", "Object-oriented programming", "Event-driven programming",
+                    "Functional Programming"],
+        "answer": "Event-driven programming"
 
     },
     {
-        "question": "Which of the following is a primary color?",
-        "choices":  ["Red", "Cyan", "Magenta", "Black"],
-        "answer": "Red"
+        "question": "What is not a layout manager?",
+        "choices":  ["Place", "Pack", "Grid", "Coordinate"],
+        "answer": "Coordinate"
 
     },
     {
@@ -44,15 +46,15 @@ quiz_data = [
 
     },
     {
-        "question": "What is the layer of the earth?",
-        "choices":  ["Mantle", "Outer Core", "Inner Core", "Crust"],
-        "answer": "Crust"
+        "question": "What is the best way to create an exception?",
+        "choices":  ["The raise command", "The def command", "Utilizing the else/elif commands", "All of the above"],
+        "answer": "The raise command"
 
     },
     {
-        "question": "Which of the following borders Russia?",
-        "choices": ["Canada", "Ukraine", "Mexico", "Thailand"],
-        "answer": "Winter"
+        "question": "To use a file you must first use which of the functions?",
+        "choices": ["Open", "Read", "Scan", "Readline"],
+        "answer": "Open"
 
     }
 

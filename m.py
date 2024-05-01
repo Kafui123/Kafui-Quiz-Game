@@ -58,6 +58,8 @@ class Quiz:
         # Load and display image for the first question
         self.image = Image.open("q1.img")  # Replace "q1.jpg" with the actual image path
         self.image = self.image.resize((400, 200))
+        # This code converts the resized image stored into a suitable format because tkinter does not support
+        # Pil images
         self.photo = ImageTk.PhotoImage(self.image)
         self.img_label = tk.Label(root, image=self.photo)
         self.img_label.pack()
@@ -67,7 +69,7 @@ class Quiz:
         for i in range(4):
             button = ttk.Button(
                 root,
-                command=lambda i=i: self.check_answer(i)
+                command=lambda i=i: self.check_answer(i)  # The command parameter specifies the function to be called
             )
             button.pack(pady=5)
             self.choice_btns.append(button)
@@ -109,7 +111,7 @@ class Quiz:
         question = quiz_data[self.current_question]
         self.qs_label.config(text=question["question"])
 
-        choices = question["choices"]
+        choices = question["choices"]   # This gets the choice values from the quiz_data.py file
         for i in range(4):
             self.choice_btns[i].config(text=choices[i], state="normal")
 

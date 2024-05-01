@@ -1,6 +1,6 @@
 import unittest
 import tkinter as tk
-from tkinter import ttk
+
 from tkinter import messagebox
 from quiz_data import quiz_data
 from m import Quiz

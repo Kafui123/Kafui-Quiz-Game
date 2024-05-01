@@ -107,7 +107,7 @@ class Quiz:
         self.show_question()
 
     def show_question(self):
-        """Displays the current question."""
+        """Displays the current question and sets up the answer choices for them respectively """
         question = quiz_data[self.current_question]
         self.qs_label.config(text=question["question"])
 
@@ -115,12 +115,15 @@ class Quiz:
         for i in range(4):
             self.choice_btns[i].config(text=choices[i], state="normal")
 
-        self.feedback_label.config(text="")
-        self.next_btn.config(state="disabled")
+        self.feedback_label.config(text="")  # This code ensures that the text displayed inside the
+        # feedback label is cleared after the user clicks on the next button
+
+        self.next_btn.config(state="disabled")   # When it moves to the next question it disables the next button
+        # so it forces the user to click an option
 
         try:
             image_path = f"q{self.current_question + 1}.img"  # This code changes the image with each new question
-            self.image = Image.open(image_path)
+            self.image = Image.open(image_path)  # This code opens the image using the Image.open function from the PIL
             self.image = self.image.resize((400, 200))
             self.photo = ImageTk.PhotoImage(self.image)
             self.img_label.config(image=self.photo)
@@ -135,15 +138,18 @@ class Quiz:
             choice (int): Index of the selected answer choice.
         """
         question = quiz_data[self.current_question]
-        selected_choice = self.choice_btns[choice].cget("text")
+        selected_choice = self.choice_btns[choice].cget("text")  # We used .cget() here so that we could obtain the text
+        # from the configured value
 
         if selected_choice == question["answer"]:
             self.score += 1
-            self.score_label.config(text="Score: {}/{}".format(self.score, len(quiz_data)))
+            self.score_label.config(text="Score: {}/{}".format(self.score, len(quiz_data)))  # The .format is used
+            # here to directly insert values into strings in python
             self.feedback_label.config(text="Correct!", foreground="green")
         else:
             self.feedback_label.config(text="Incorrect!", foreground="red")
-
+        # After the feedback displays whether it is correct or not, the buttons of the option choices
+        # then become disabled.
         for button in self.choice_btns:
             button.config(state="disabled")
         self.next_btn.config(state="normal")
@@ -163,14 +169,17 @@ class Quiz:
 
 def main():
     """Main function to start the quiz."""
+
     root = tk.Tk()
     app = Quiz(root)
-    root.mainloop()
     style = Style(theme="flatly")
 
     # Configure the font size for the question and choice buttons
-    style.configure("TLabel", font=("Helvetica", 20))
-    style.configure("TButton", font=("Helvetica", 16))
+    style.configure("TLabel", font=("Helvetica", 12))
+    style.configure("TButton", font=("Helvetica", 10))
+    root.mainloop()
+
+
 
 if __name__ == "__main__":
     main()

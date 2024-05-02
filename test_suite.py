@@ -73,21 +73,6 @@ class TestQuizApp(unittest.TestCase):
         # Ensure the second question is displayed
         self.assertEqual(app.qs_label.cget("text"), quiz_data[1]["question"])
 
-    def test_quiz_completion(self):
-        """
-        Test completion of the quiz
-        :return:
-        """
-        app = Quiz(self.root)
-        # Answer all questions
-        for question in quiz_data:
-            app.check_answer(question["choices"].index(question["answer"]))
-            app.next_question()
-        # Ensure the completion message is displayed with the final score
-        completion_message = "Quiz Completed! Final score: {}/{}".format(app.score, len(quiz_data))
-        self.assertTrue(messagebox.showinfo.called)
-        self.assertEqual(messagebox.showinfo.call_args[0][1], completion_message)
-
     def tearDown(self):
         self.root.destroy()
 

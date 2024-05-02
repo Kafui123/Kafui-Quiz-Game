@@ -1,3 +1,20 @@
+######################################################################
+# Author: Kafui Gle and Jessica Douthit
+# Username: glek and douthitj
+#
+#  226 Final Project
+#
+# Purpose: To make a an interactive GUI game
+#
+#
+#######################################################################
+# Acknowledgements:
+#
+# Original code written
+#
+# licensed under a Creative Commons
+# Attribution-Noncommercial-Share Alike 3.0 United States License.
+####################################################################################
 quiz_data = [
     {
         "question": "The way that files are located on disk is by their path",

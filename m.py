@@ -1,10 +1,6 @@
 ######################################################################
-# Author: Kafui Gle and Jessica Douthit
-# Username: glek and douthitj
+# Author: Kafui Gle
 #
-#  226 Final Project
-#
-# Purpose: To make a an interactive GUI game
 #
 #
 #######################################################################
@@ -116,7 +112,7 @@ class Quiz:
             self.choice_btns[i].config(text=choices[i], state="normal")
 
         self.feedback_label.config(text="")  # This code ensures that the text displayed inside the
-        # feedback label is cleared after the user clicks on the next button
+        #  feedback label is cleared after the user clicks on the next button
 
         self.next_btn.config(state="disabled")   # When it moves to the next question it disables the next button
         # so it forces the user to click an option
